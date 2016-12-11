@@ -124,16 +124,16 @@
             if(w > h) {
               ratio = C_H/h;
               scaledW = w * ratio;
-              deltaX = (w-scaledW)*ratio/2;
+              deltaX = (scaledW-C_W)/2;
               if (deltaX < 0) {
                 deltaX = 0
               }
             } else if (w < h) {
               ratio = C_W/w;
               scaledH = h * ratio
-              deltaY = (h-scaledH)*ratio/2;
+              deltaY = (scaledH-C_H)/2;
               if (deltaY < 0) {
-                // deltaY = 0
+                 deltaY = 0
               }
             }
 
