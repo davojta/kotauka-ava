@@ -116,12 +116,26 @@
 
             // draw avatar
             var ratio = C_H/h;
-            var scaledW = w * ratio;
-            var deltaX = (w-scaledW)*ratio/2;
-            if (deltaX < 0) {
+            var scaledW = C_H
+            var scaledH = C_H
+            var deltaX = 0
+            var deltaY = 0
+            if(w > h) {
+              scaledW = w * ratio;
+              deltaX = (w-scaledW)*ratio/2;
+              if (deltaX < 0) {
                 deltaX = 0
+              }
+            } else if (w < h) {
+              scaledH = h * ratio
+              deltaY = (h-scaledH)*ratio/2;
+              if (deltaY < 0) {
+                deltaY = 0
+              }
             }
-            ctx.drawImage(this, 0, 0, w, h, -deltaX, 0, scaledW, C_H);
+
+
+            ctx.drawImage(this, 0, 0, w, h, -deltaX, -deltaY, scaledW, C_H);
 
             var image = document.getElementById("frame");
 
@@ -235,4 +249,5 @@
             uploadImage.abort();
         }
     });
+
 }(jQuery));
