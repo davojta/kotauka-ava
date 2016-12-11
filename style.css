@@ -11,8 +11,8 @@ h1 {
 
 #celebrate-img {
     border: 14px dashed #fff;
-    width: 292px;
-    height: 292px;
+    width: 392px;
+    height: 392px;
     margin: 0 auto;
     overflow: hidden;
     background: url(img/drop.png) center center no-repeat #fff;
@@ -30,8 +30,8 @@ h1 {
 #celebrate-img.generator {
     border-color: #fff;
     border: 0 none;
-    width: 320px;
-    height: 320px;
+    width: 395px;
+    height: 395px;
     background: url(data:image/gif;base64,R0lGODlhCgAKAIAAAAAAAP///yH5BAEAAAAALAAAAAAKAAoAAAIRhB2ZhxoM3GMSykqd1VltzxQAOw==) repeat scroll #ddd;
 }
 

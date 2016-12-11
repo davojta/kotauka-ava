@@ -14,6 +14,7 @@
      * @param {Array} files
      */
     function readerImage(files) {
+        console.log('reader image')
         if (files.length && files[0].type.indexOf('image/') === 0) {
             var reader = new FileReader();
             reader.readAsDataURL(files[0]);
@@ -74,7 +75,7 @@
      */
     function generator(url, cross) {
         $wrap_img.addClass('generator');
-        rainbowLGBT(url, cross, 320, function (img) {
+        rainbowLGBT(url, cross, 395, function (img) {
             dataUrl = img;
             $wrap_img.html('<a href="' + img + '" download="CelebratePride.jpg"><img src="' + img + '" alt="Celebrate Pride"></a>');
             $input.prop('disable', false).val('');
@@ -104,32 +105,28 @@
                 h = this.height, // image width
                 rh = h / w * cw, // ratio height
                 ch = rh, // canvas height
-                sixthly,
                 mh = cw * 1.2; // canvas max height
-            if (rh > mh) {
-                ch = mh;
-            }
+
+            // rh = 395;
+            // cw = 395;
+            // ch = 395;
+            // if (rh > mh) {
+            //     ch = mh;
+            // }
             $wrap_img.height(ch);
-            sixthly = ch / 6; // 1/6 canvas height
 
-            canvas.width = cw;
+            //canvas.width = cw;
+            canvas.width = 395;
             canvas.height = ch;
+            canvas.height = 395;
 
+            // draw avatar
             ctx.drawImage(this, 0, 0, cw, rh);
 
-            ctx.globalAlpha = 0.5;
-            ctx.fillStyle = '#ff3e18';
-            ctx.fillRect(0, 0, cw, sixthly);
-            ctx.fillStyle = '#fc9a00';
-            ctx.fillRect(0, sixthly, cw, sixthly);
-            ctx.fillStyle = '#ffd800';
-            ctx.fillRect(0, (sixthly * 2), cw, sixthly);
-            ctx.fillStyle = '#39ea7c';
-            ctx.fillRect(0, (sixthly * 3), cw, sixthly);
-            ctx.fillStyle = '#0bb2ff';
-            ctx.fillRect(0, (sixthly * 4), cw, sixthly);
-            ctx.fillStyle = '#985aff';
-            ctx.fillRect(0, (sixthly * 5), cw, sixthly);
+            var image = document.getElementById("frame");
+
+            ctx.drawImage(image, 0, 0, 395, 395);
+
 
             var dataURL = canvas.toDataURL('image/jpeg');
             if (typeof callback === 'function') {
@@ -217,6 +214,8 @@
         readerImage(this.files);
         $('#celebrate-file').replaceWith('<input id="celebrate-file" type="file" accept="image/*">');
     });
+
+
 
     $reset.on('click', function () {
         $wrap_img.removeAttr('style').html('<div><strong>Drop image</strong><br><span>(or click)</span></div>').removeClass('generator');
