@@ -77,7 +77,7 @@
         $wrap_img.addClass('generator');
         rainbowLGBT(url, cross, 395, function (img) {
             dataUrl = img;
-            $wrap_img.html('<a href="' + img + '" download="CelebratePride.jpg"><img src="' + img + '" alt="Celebrate Pride"></a>');
+            $wrap_img.html('<a href="' + img + '" download="kotauka_zhyvi_ava.jpg"><img src="' + img + '" alt="Котовка живи!"></a>');
             $input.prop('disable', false).val('');
             $add.slideUp('fast');
             $complete.slideDown('fast');
