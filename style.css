@@ -36,7 +36,7 @@ h1 {
 }
 
 #celebrate-img.generator:after {
-    content: url(img/download.png);
+    content: url(img/download_g.png);
     position: absolute;
     right: 5px;
     bottom: 5px;
