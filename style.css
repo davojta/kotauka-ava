@@ -5,8 +5,16 @@ body {
 h1 {
     text-align: center;
     font-family: sans-serif;
-    font-weight: 300;
-    color: rgb(255, 0, 174);
+    font-weight: 400;
+    color: #aaeeaa;
+    background-color: rgba(0, 48, 8, 0.47);
+
+    font-weight: 600;
+}
+
+#celebrate {
+    background: url('./img/bg.jpg');
+    background-size: cover;
 }
 
 #celebrate-img {
