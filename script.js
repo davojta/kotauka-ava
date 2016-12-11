@@ -115,18 +115,21 @@
             canvas.height = C_H;
 
             // draw avatar
-            var ratio = C_H/h;
+            var ratio = 1;
+
             var scaledW = C_H
             var scaledH = C_H
             var deltaX = 0
             var deltaY = 0
             if(w > h) {
+              ratio = C_H/h;
               scaledW = w * ratio;
               deltaX = (w-scaledW)*ratio/2;
               if (deltaX < 0) {
                 deltaX = 0
               }
             } else if (w < h) {
+              ratio = C_W/w;
               scaledH = h * ratio
               deltaY = (h-scaledH)*ratio/2;
               if (deltaY < 0) {
@@ -135,7 +138,7 @@
             }
 
 
-            ctx.drawImage(this, 0, 0, w, h, -deltaX, -deltaY, scaledW, C_H);
+            ctx.drawImage(this, 0, 0, w, h, -deltaX, -deltaY, scaledW, scaledH);
 
             var image = document.getElementById("frame");
 
@@ -250,4 +253,8 @@
         }
     });
 
+
+  var url = "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/11665556_858991090823375_3296361871304280603_n.jpg?oh=39ed7e0ecf74865751853c9244b45285&oe=58E970D7"
+  var cross = true
+  generator(url, cross)
 }(jQuery));
