@@ -117,7 +117,7 @@
             // draw avatar
             var ratio = 1;
 
-            var scaledW = C_H
+            var scaledW = C_W
             var scaledH = C_H
             var deltaX = 0
             var deltaY = 0
@@ -133,10 +133,24 @@
               scaledH = h * ratio
               deltaY = (h-scaledH)*ratio/2;
               if (deltaY < 0) {
-                deltaY = 0
+                // deltaY = 0
               }
             }
 
+
+            // if(scaledW > C_W) {
+            //     scaledH = scaledH * C_W / scaledW
+            //     if (scaledH < C_H) {
+            //         deltaY = (h-scaledH) * (C_W / w)
+            //     }
+            //     scaledW = C_W
+            // } else if (scaledH > C_H) {
+            //   scaledW = scaledW * C_H / scaledH
+            //   if (scaledW < C_W) {
+            //     deltaY = (w-scaledW) * (C_H / h)
+            //   }
+            //   scaledH = C_H
+            // }
 
             ctx.drawImage(this, 0, 0, w, h, -deltaX, -deltaY, scaledW, scaledH);
 
@@ -253,8 +267,4 @@
         }
     });
 
-
-  var url = "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/11665556_858991090823375_3296361871304280603_n.jpg?oh=39ed7e0ecf74865751853c9244b45285&oe=58E970D7"
-  var cross = true
-  generator(url, cross)
 }(jQuery));
