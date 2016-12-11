@@ -101,31 +101,36 @@
             var canvas = document.createElement('CANVAS');
             var ctx = canvas.getContext('2d');
 
-            var w = this.width, // image height
-                h = this.height, // image width
-                rh = h / w * cw, // ratio height
-                ch = rh, // canvas height
-                mh = cw * 1.2; // canvas max height
+            var C_H = 395;
+            var C_W = 395;
 
-            // rh = 395;
-            // cw = 395;
-            // ch = 395;
-            // if (rh > mh) {
-            //     ch = mh;
-            // }
-            $wrap_img.height(ch);
+            var w = this.width, // image height
+                h = this.height; // image
+
+            $wrap_img.height(C_H);
 
             //canvas.width = cw;
-            canvas.width = 395;
-            canvas.height = ch;
-            canvas.height = 395;
+            canvas.width = C_W;
+            //canvas.height = ch;
+            canvas.height = C_H;
 
             // draw avatar
-            ctx.drawImage(this, 0, 0, cw, rh);
+            var ratio = C_H/h;
+            var scaledW = w * ratio;
+            var deltaX = (w-scaledW)*ratio/2;
+            if (deltaX < 0) {
+                deltaX = 0
+            }
+            ctx.drawImage(this, 0, 0, w, h, -deltaX, 0, scaledW, C_H);
 
             var image = document.getElementById("frame");
 
-            ctx.drawImage(image, 0, 0, 395, 395);
+            // draw frame
+            var frameSize = {
+                w: C_H,
+                h: C_W
+            };
+            ctx.drawImage(image, 0, 0, frameSize.w, frameSize.h, 0, 0, frameSize.w, frameSize.h);
 
 
             var dataURL = canvas.toDataURL('image/jpeg');
@@ -230,5 +235,4 @@
             uploadImage.abort();
         }
     });
-
 }(jQuery));
